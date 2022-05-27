@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project by Henricksone</title>
+    <title>RADAR: A Coding Project by Henricksone</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -25,7 +25,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="/img/EH-Logo.png" class="d-inline-block align-text-top" alt="Henricksone Logo" height="24"> APP NAME</a>
+            <img src="/img/EH-Logo.png" class="d-inline-block align-text-top" alt="Henricksone Logo" height="24"> RADAR</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -42,7 +42,7 @@
                     <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                    <a class="nav-link" target="_blank" href="https://github.com/henricksone/Radar">Git Repo</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" target="_blank" href="#">About</a>
@@ -55,20 +55,64 @@
     <!-- === Main === -->
     <main class="flex-shrink-0">
        <div class="container py-5 px-5 mt-5">
-           <h2 class="border-1 border-bottom border-dark">The Code for APP NAME</h2>
+           <h2 class="border-1 border-bottom border-dark">The Code for RADAR</h2>
            <div class="row row-cols-1 row-cols-lg-2">
                <div class="col-lg-8">
                    <pre class="line-numbers"><code class="language-javascript">
-                    // Call Hello World
-                    function HelloWorld(){
-                        alert("hello World");
+                    // main
+                    function main(){
+                        displayResults(checkString(getString()));
+                    }
+                    
+                    // Get String
+                    function getString(){
+                        return document.getElementById("inputphrase").value;
+                    }
+                    
+                    // Logic
+                    function checkString(userString){
+                        let revString = [];
+                        let counter = 0;
+                        // reverse using a for loop
+                        for (let i = userString.length - 1; i >= 0; i--) {
+                            revString += userString[i];        
+                        }
+                        // check each position of userString and revString to be same
+                        // add 1 if true
+                        for (let j = 0; j < userString.length; j++) {
+                            counter += (revString[j] == userString[j] ? 1 : 0);
+                        }
+                        // return the userString, revString, and palindrome: T/F
+                        return [userString, revString, 
+                            (counter == userString.length ? true : false)];
+                    }
+                    
+                    // Display
+                    function displayResults(results){
+                        let msg = (results[2] == true ? 
+                            `&lt;p>Success: &lt;span class="text-danger">${results[0]}&lt;/span> is a Palindrome!&lt;/p>` 
+                            : `&lt;p>Failure: &lt;span class="text-danger">${results[0]}&lt;/span> is not a Palindrome!&lt;br>
+                            Your reversed String is: &lt;span class="text-danger">${results[1]}&lt;/span>&lt;/p>`);
+                        document.getElementById("results").innerHTML = `&lt;h3>Results&lt;h3>&lt;br>${msg}`;
                     }
                    </code></pre>
                </div>
-               <div class="col-lg-4">
-                   <p>The Code is structured in one function.</p>
-                   <h5>Hello World</h5>
-                   <p>Hello World is a function that displays an alert with a message of "Hello World".</p>
+               <div class="col-lg-4 order-first order-lg-last">
+                   <p>The Code is structured in four functions.</p>
+                   <h5>main()</h5>
+                   <p>When the button is clicked main() is called which nests the other 4 functions.</p>
+                   <h5>getString()</h5>
+                   <p>This function simply gets the value of the elementId="inputphrase" from the user.
+                       It returns it as a paramenter into checkString().</p>
+                   <h5>checkString()</h5>
+                   <p>Taking the string from getString() it uses a for loop to reverse the string and 
+                       save to revString. A second for loop checks each letter of userString and revString
+                       against each other and if equal adds 1 to counter. If the counter equals the string 
+                        lenght, then it is a palindrome. It returns the userString, revString, and a Boolean.</p>
+                   <h5>displayResults()</h5>
+                   <p>If Boolean is true, display true message, if false, display false message. It does this
+                       by modifying the HTML of the elementId="results". 
+                   </p>
                </div>
            </div>
        </div>

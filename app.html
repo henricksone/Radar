@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project by Henricksone</title>
+    <title>RADAR: A Coding Project by Henricksone</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -24,7 +24,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="/img/EH-Logo.png" class="d-inline-block align-text-top" alt="Henricksone Logo" height="24"> APP NAME</a>
+            <img src="/img/EH-Logo.png" class="d-inline-block align-text-top" alt="Henricksone Logo" height="24"> RADAR</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -41,7 +41,7 @@
                     <a class="nav-link" href="code.html">The Code</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                    <a class="nav-link" target="_blank" href="https://github.com/henricksone/Radar">Git Repo</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" target="_blank" href="#">About</a>
@@ -54,7 +54,35 @@
     <!-- === Main === -->
     <main class="flex-shrink-0">
        <div class="container">
-
+            <div class="row">
+                <!-- COL 1 -->
+                <div class="col">
+                    <h1 class="display-5">RADAR: A Coding Project</h1>
+                    <p>RADAR is a plaindrome. A Palindrom is a word, phrase, 
+                        or sequence that reads the same backward as forward. 
+                        Write a program that checks if the phrase entered is 
+                        a plaindrome. </p>
+                    <hr>
+                    <h1 class="display-5">Instructions</h1>
+                    <p>Enter a string and click "Check It" to determine if the string is a Palindrome.</p>
+                </div>
+                <!-- COL 2 -->
+                <div class="col">
+                    <h5>Enter a phrase or word to check</h5>
+                    <hr>
+                    <div class="row">
+                        <form>
+                            <div class="col-12"><input type="text" class="form-control" id="inputphrase" placeholder="Enter a String"></div>
+                            <div class="col my-2"><button type="button" id="btnSubmit" class="btn btn-dark">Check It</button></div>
+                        </form>
+                        <div class="col">
+                            <div id="results">
+                                <!-- Results Here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
        </div>
     </main>
 
@@ -83,6 +111,7 @@
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
     </script>
     <script src="/js/site.js"></script>
+    <script>document.getElementById("btnSubmit").addEventListener("click",main);</script>
 </body>
 
 </html>
